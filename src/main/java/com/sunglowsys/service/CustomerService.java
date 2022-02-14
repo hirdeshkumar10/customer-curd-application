@@ -1,19 +1,22 @@
 package com.sunglowsys.service;
 
 import com.sunglowsys.domain.Customer;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
+import java.util.Optional;
 
 
 public interface CustomerService {
 
-    Object create(Customer customer);
+    Customer create(Customer customer);
 
-    Customer update(Customer customer, Long id);
+    Customer update(Customer customer);
 
-    Customer findCustomerById(Long id);
+    Optional<Customer> findById(Long id);
 
-    List<Customer> findAll();
+    Page<Customer> findAll(Pageable pageable);
 
     void delete(Long id);
 

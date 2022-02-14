@@ -9,23 +9,34 @@ public class Customer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     private Long id;
 
-    @Column(name = "first_name")
+    @Column(nullable = false)
     private String firstName;
 
-    @Column(name = "last_name")
+    @Column(nullable = true)
     private String lastName;
 
-    @Column(name = "email")
+    @Column(nullable = false)
     private String email;
 
-    @Column(name = "mobile")
+    @Column(nullable = false)
     private String mobile;
 
-    @Column(name = "gender")
+    @Column(nullable = false)
     private String gender;
+
+    public Customer() {
+    }
+
+    public Customer(Long id, String firstName, String lastName, String email, String mobile, String gender) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.mobile = mobile;
+        this.gender = gender;
+    }
 
     public Long getId() {
         return id;
