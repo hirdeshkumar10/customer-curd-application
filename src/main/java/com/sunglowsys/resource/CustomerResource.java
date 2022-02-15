@@ -55,10 +55,10 @@ public class CustomerResource {
     }
 
     @PutMapping("/customers/{id}")
-    public ResponseEntity<Customer> updateCustomer(@RequestBody Customer customer) {
+    public ResponseEntity<Customer> updateCustomer(@RequestBody Customer customer)  throws URISyntaxException{
         log.debug("Rest Request to update Customer: {}",customer);
         if (customer.getId() == null){
-            throw new RuntimeException("Id should not be null in update api calls");
+            throw new RuntimeException ("Id should not be null in update api calls");
         }
         Customer result = customerService.update(customer);
         return ResponseEntity
